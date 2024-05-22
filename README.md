@@ -46,6 +46,14 @@ REFRESH_TOKEN_SECRET = The secret key for signing refresh tokens.
 
 <br>
 
+## Diagram
+
+<div align="center">
+    <img src="https://github.com/maraneagu/RecipeProject-NodeJS/assets/93272424/0a3b4eee-21b4-4aa6-9446-6bc7f2cad385" alt="image">
+</div>
+
+<br>
+
 ## API Endpoints
 ### Authentication
 
