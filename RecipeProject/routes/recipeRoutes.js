@@ -10,7 +10,7 @@ module.exports = function(upload) {
     router.get('/user/:userId', recipeController.getUserRecipes);
     router.get('/:id', recipeController.getRecipe);
 
-    router.post('', tokenValidator.accessToken, upload.single('pictureUrl'), recipeValidator.createRecipe, recipeController.createRecipe); // Use upload middleware here
+    router.post('', tokenValidator.accessToken, upload.single('pictureUrl'), recipeValidator.createRecipe, recipeController.createRecipe);
 
     router.put('/:id', tokenValidator.accessToken, upload.single('pictureUrl'), recipeValidator.updateRecipe, recipeController.updateRecipe);
 
