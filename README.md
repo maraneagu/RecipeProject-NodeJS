@@ -21,8 +21,6 @@ This API allows users to manage recipes and reviews. Users can create, update, d
 - npm (v6 or later)
 - MySQL
 
-<br>
-
 ### Installation
 1. Clone the repository:
 
@@ -67,8 +65,6 @@ REFRESH_TOKEN_SECRET = The secret key for signing refresh tokens.
 
 `POST /api/auth/logout` 
 - Logout of the account.
-
-<br>
 
 ### User
 
