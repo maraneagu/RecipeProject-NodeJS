@@ -66,6 +66,8 @@ REFRESH_TOKEN_SECRET = The secret key for signing refresh tokens.
 `POST /api/auth/logout` 
 - Logout of the account.
 
+<br>
+
 ### User
 
 `GET /api/users` 
