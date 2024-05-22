@@ -37,7 +37,7 @@ npm install
 
 3. Create a .env file in the root of the project and add the following environment variables:
 
-```bash
+```
 PORT = The port on which the server will run.
 DATABASE_URL = The url of the MySQL database.
 ACCESS_TOKEN_SECRET = The secret key for signing access tokens.
@@ -58,3 +58,62 @@ REFRESH_TOKEN_SECRET = The secret key for signing refresh tokens.
 `POST /api/auth/logout` 
 - Logout of the account.
 
+<br>
+
+### User
+
+`GET /api/users` 
+- Get all the users.
+
+`GET /api/users/:id`
+- Get a user associated with an id.
+
+`PUT /api/users/:id` 
+- Update a user's name or password associated with an id. 
+
+`DELETE /api/users/:id` 
+- Delete a user's account associated with an id.
+
+<br>
+
+### Recipe
+
+`GET /api/recipes` 
+- Get all the recipes.
+
+`GET /api/recipes/:id`
+- Get a recipe associated with an id.
+
+`GET /api/recipes/user/:userId`
+- Get a recipe created by a user associated with an id.
+
+`POST /api/recipes`
+- Create a recipe.
+
+`PUT /api/recipes/:id` 
+- Update a recipe's name, ingredient's list or instruction's associated with an id. 
+
+`DELETE /api/users/:id` 
+- Delete a recipe associated with an id.
+
+<br>
+
+### Review
+
+`GET /api/reviews/:id` 
+- Get a review associated with an id.
+
+`GET /api/reviews/user/:userId`
+- Get all the reviews written by a user associated with an id.
+
+`GET /api/reviews/recipe/:recipeId`
+- Get all the reviews of a recipe associated with an id.
+
+`POST /api/reviews/:recipeId`
+- Add a review to a recipe associated with an id.
+
+`PUT /api/reviews/:id` 
+- Update a review's text or rating associated with an id. 
+
+`DELETE /api/reviews/:id` 
+- Delete a review associated with an id.
