@@ -9,7 +9,10 @@ const createRecipe = [
         const errors = validationResult(req);
 
         if (!(errors.isEmpty())) {
-            return res.status(400).json({ message: 'Unable to create the recipe!', errors: errors.array() });
+            return res.status(400).json({
+                status: 400, 
+                message: 'Unable to create the recipe!', 
+                errors: errors.array() });
         }
 
         next();
@@ -25,6 +28,7 @@ const updateRecipe = [
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({
+                status: 400,
                 message: 'Unable to update the recipe!',
                 errors: errors.array()
             });

@@ -9,6 +9,7 @@ const registerUser = [
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({
+                status: 400,
                 message: 'Unable to register the user!',
                 errors: errors.array()
             });
@@ -26,6 +27,7 @@ const loginUser = [
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ 
+                status: 400,
                 message: 'Unable to login the user!',
                 errors: errors.array()
              });

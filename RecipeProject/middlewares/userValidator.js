@@ -8,6 +8,7 @@ const updateUser = [
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({
+                status: 400,
                 message: 'Unable to update the user!',
                 errors: errors.array()
             });

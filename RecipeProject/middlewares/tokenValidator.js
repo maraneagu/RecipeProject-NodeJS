@@ -12,7 +12,10 @@ const accessToken = [
                 if (error.name === 'JsonWebTokenError') {
                     console.log("Token Undefined!");
 
-                    return res.status(500).json({ message: 'Invalid access token! Login into your account!', error });
+                    return res.status(401).json({ 
+                        status: 401,
+                        message: 'Invalid access token! Login into your account!', 
+                        error });
                 }
                 
                 if (error.name === 'TokenExpiredError') {
@@ -20,7 +23,9 @@ const accessToken = [
 
                     return refreshToken(req, res, () => {
                         if (!req.user) {
-                            return res.status(401).json({ message: 'Unable to refresh access token!' });
+                            return res.status(500).json({ 
+                                status: 500,
+                                message: 'Unable to refresh access token!' });
                         }
                         next();
                     });
@@ -31,7 +36,10 @@ const accessToken = [
             });
         } catch (error) {
             res.clearCookie("accessToken");
-            return res.status(500).json({ message: 'Unable to get the access token!', error });
+            return res.status(500).json({ 
+                status: 500,
+                message: 'Unable to get the access token!', 
+                error });
         }
     }
 ];
@@ -40,12 +48,16 @@ const refreshToken = (req, res, next) => {
     try {
         const refreshToken = req.cookies.refreshToken;
         if (!refreshToken) {
-            return res.status(401).json({ message: 'Refresh token not provided!' });
+            return res.status(401).json({ 
+                status: 401,
+                message: 'Refresh token not provided! Login into your account!' });
         }
 
         jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (error, user) => {
             if (error) {
-                return res.status(403).json({ message: 'Invalid refresh token!', error });
+                return res.status(403).json({ 
+                    status: 403,
+                    message: 'Invalid refresh token!', error });
             }
 
             const accessToken = jwt.sign({ id: user.id, email: user.email }, ACCESS_TOKEN_SECRET, { expiresIn: '1s' });
@@ -58,7 +70,9 @@ const refreshToken = (req, res, next) => {
             next();
         });
     } catch (error) {
-        res.status(500).json({ message: 'Unable to refresh access token!', error });
+        res.status(500).json({ 
+            status: 500,
+            message: 'Unable to refresh access token!', error });
     }
 };
 
